@@ -1,6 +1,6 @@
 import React,{useState, useEffect} from "react";
 
-import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Button, Progress } from 'semantic-ui-react'
 import ProblemCard from "./ProblemCard";
 
@@ -10,22 +10,25 @@ function ProblemsContainer(){
 
     const [problems, setProblems] = useState([])
     const [selectedproblem,setSelectedProblem] = useState()
-    const {id} = useParams()
-    console.log(id)
-    setSelectedProblem(id)
+    
+    const navigate=useNavigate()
+    // setSelectedProblem(id)
 
     useEffect(()=>{
-      fetch('http://localhost:3000/items')
+      fetch('http://localhost:3000/problems')
       .then((resp)=>resp.json()
       .then((data)=>setProblems(data)))
 
     },[])
    
- 
-    function handleCardClick(id){
+   
+    function handleCardClick(problemId){
+        console.log(problemId)
         console.log("Card is clicked")
+        navigate(`/problems/${problemId}`)
+        
     }
-
+    
     let [state,setState] = useState({ percent: 33 })
 
   
