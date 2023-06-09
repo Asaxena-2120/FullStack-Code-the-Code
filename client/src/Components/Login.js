@@ -1,14 +1,19 @@
 import React,{useState} from "react";
+import SignUp from "./SignUp";
 import { Button, Divider, Form, Grid, Segment } from 'semantic-ui-react'
+import { useNavigate } from "react-router-dom";
 
 function Login({onSetLogin}){
+    const navigate = useNavigate();
 
     const [formData, setformData] = useState({
         username:"",
         password:""
     })
     function handleSignUp(){
-        console.log("handle Signup")
+        console.log("handle Signup");
+        navigate('/SignUp')
+
     }
     function handleSubmit(event) {
         event.preventDefault();
