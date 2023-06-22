@@ -1,6 +1,6 @@
 import React,{useState} from "react";
 import SignUp from "./SignUp";
-import { Button, Divider, Form, Grid, Segment } from 'semantic-ui-react'
+import { Button, Divider, Form, Grid, Segment, Image } from 'semantic-ui-react'
 import { useNavigate } from "react-router-dom";
 
 function Login({onSetLogin}){
@@ -30,6 +30,7 @@ function Login({onSetLogin}){
     }
     return(
         <div>
+          
             <Segment placeholder>
     <Grid columns={2} relaxed='very' stackable>
       <Grid.Column>
